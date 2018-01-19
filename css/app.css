@@ -1,0 +1,52 @@
+/* Loading images */
+
+#loading-calendar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: 15% auto;
+  display:none;
+}
+
+#loading-users {
+  position: absolute;
+  left: 0;
+  top: 64px;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  display: none;
+  z-index: 1000;
+}
+
+/* FontAwesome icon in Fullcalendar customButtons : issue https://github.com/fullcalendar/fullcalendar/issues/3316 */
+.fc-icon-fa {
+  font-family: FontAwesome;
+}
+
+/* Calendar container */
+.fc-view-container {opacity: 0.3;}
+
+/* qTip2 */
+.qtip-bootstrap {max-width: 450px}
+
+/* Translucent notice CSS */
+.translucent {
+  opacity: 0.8;
+}
+
+/* Bootstrap-select btn style */
+.btn-static,
+.btn-static.focus,
+.btn-static:hover,
+.btn-static.active {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+  font-weight: bold;
+}
+.btn-static .caret {
+  display: none;
+}
