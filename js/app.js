@@ -178,7 +178,7 @@ $(document).ready(function() {
 				
                 event.title = "Privé";
 				element.find('.fc-title').html(event.title);
-				element.find('.fc-title').prepend('<i class="fa fa-lock" aria-hidden="true"></i> ');
+				element.find('.fc-title').prepend('<i class="fas fa-lock" aria-hidden="true"></i> ');
 				element.find('.fc-list-item-title').html(event.title);
 			}
 			else if (!event.title) {
@@ -276,7 +276,7 @@ $(document).ready(function() {
         customButtons: {
             update: {
                 text: 'Rafraîchir',
-                icon: 'fa fa fa-refresh',
+                icon: 'fa fas fa-sync',
                 click: function() {
                   load_calendar({url:'api/get_calendar.php?q='+agenda_mail, text:agenda_name});
                 }
