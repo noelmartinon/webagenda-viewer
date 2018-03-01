@@ -38,7 +38,8 @@ along with this program.  If not, see <//www.gnu.org/licenses/>.
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
 <!-- Font Awesome /!\Using fa icon in Fullcalendar need '.fc-icon-fa' css adaptation (see app.css)-->
-<link href="//fontawesome.io/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet" type="text/css">
 
 <!-- Moment -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
