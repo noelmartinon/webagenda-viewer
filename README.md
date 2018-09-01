@@ -11,6 +11,7 @@ Il a été conçu pour permettre de visualiser rapidement les rendez-vous des ut
 ## Installation
 * Déposer tous les fichiers sur votre serveur web
 * Éventuellement mettre votre propre logo dans le répertoire '/images'
+* Renommer 'inc/config.inc.default' en 'inc/config.inc'
 * Adapter le fichier 'inc/config.inc' (titre, logo, paramètres d'accès aux serveurs LDAP et de messagerie/calendrier)
 
 NOTA : Pour pouvoir lire les agendas de plusieurs utilisateurs, il vous sera certainement nécessaire d'utiliser/de créer un compte de

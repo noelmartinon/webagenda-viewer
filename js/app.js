@@ -287,17 +287,17 @@ $(document).ready(function() {
     $(".fc-view-container").fadeTo("slow", 0.3);    
 	
 	// Custom selectpicker (".selectpicker" = "#userlist")
-	$('.selectpicker').selectpicker({
+	$('#userlist').selectpicker({
 	    style: 'btn-static',
 	    language: 'FR',
 	});
 
-    // leave list open on agenda click
-    $('.selectpicker').on('hidden.bs.select', function (e) {		
+    // keep list open on agenda click
+    $('#userlist').on('hidden.bs.select', function (e) {		
         $('[data-id=userlist]').trigger('click');
 	});
-	
-	// leave list open on keydown 'esc' or 'tab'
+
+	// keep list open on keydown 'esc' or 'tab'
 	document.addEventListener("keydown",function(e){
         var charCode = e.charCode || e.keyCode || e.which;
         if (charCode == 27 || charCode == 9 ){    
@@ -310,24 +310,41 @@ $(document).ready(function() {
 	   $('[data-id=userlist]').trigger('click');
 	});	
     
-	//userlist auto open on start
+	// userlist auto open on start
 	$('[data-id=userlist]').trigger('click');
 
+    // load the list of available timezones, build the <select> options
+    $.getJSON('https://fullcalendar.io/demo-timezones.json', function(timezones) {
+      $.each(timezones, function(i, timezone) {
+        if (timezone != 'UTC') { // UTC is already in the list
+          $('#timezone-selector').append(
+            $("<option/>").text(timezone).attr('value', timezone)
+          );
+          //$('<option>').val(timezone).text(i).appendTo('#timezone-selector');          
+        }
+      });
+      $('#timezone-selector').selectpicker('val', moment.tz.guess());
+      $('#timezone-selector').selectpicker("refresh");
+    });
 
-    // On select change
+    // when the timezone selector changes, dynamically change the calendar option
+    $('#timezone-selector').on('change', function() {
+      $('#calendar').fullCalendar('option', 'timezone', this.value || false);
+    });
     
-		$("#userlist").on("changed.bs.select", function(e, clickedIndex, newValue, oldValue) {
-			agenda_mail = $(this).find('option').eq(clickedIndex).val();
-			agenda_name = $(this).find('option').eq(clickedIndex).text();
+    // when agenda selection changes    
+	$("#userlist").on("changed.bs.select", function(e, clickedIndex, newValue, oldValue) {
+		agenda_mail = $(this).find('option').eq(clickedIndex).val();
+		agenda_name = $(this).find('option').eq(clickedIndex).text();
 
-			start = $('#calendar').fullCalendar('getView').start;
-	        end = $('#calendar').fullCalendar('getView').end;	        
-	        
-	        // Source change so clear events now
-	        $('#calendar').fullCalendar('removeEventSources'); 
-	        recur_events = [];
-            load_calendar({url:'api/get_calendar.php?q='+agenda_mail, text:agenda_name});
-		});
+		start = $('#calendar').fullCalendar('getView').start;
+        end = $('#calendar').fullCalendar('getView').end;	        
+        
+        // Source change so clear events now
+        $('#calendar').fullCalendar('removeEventSources'); 
+        recur_events = [];
+        load_calendar({url:'api/get_calendar.php?q='+agenda_mail, text:agenda_name});
+	});
 	
 	
 })

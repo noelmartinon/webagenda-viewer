@@ -43,6 +43,7 @@ along with this program.  If not, see <//www.gnu.org/licenses/>.
 
 <!-- Moment -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
+<script src="js/moment-timezone-with-data.min.js"></script>
     
 <!-- Fullalendar -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.2/fullcalendar.js"></script>
@@ -102,5 +103,4 @@ along with this program.  If not, see <//www.gnu.org/licenses/>.
 </div>
 </body>
 </html>
-
 
